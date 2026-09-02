@@ -24,6 +24,12 @@ def crear_base_datos():
     conexion.close()
 
 
+# Garantiza que la base de datos exista antes de atender cualquier peticion en Render
+@app.before_request
+def inicializar():
+    crear_base_datos()
+
+
 @app.route("/")
 def inicio():
     return render_template("index.html")
@@ -65,8 +71,6 @@ def listar_alumnos():
     conexion.close()
     return render_template("listar_alumnos.html", alumnos=alumnos)
 
-
-crear_base_datos()
 
 if __name__ == "__main__":
     app.run(debug=True)
