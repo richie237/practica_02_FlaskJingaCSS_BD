@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 02 - Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Registro de Alumnos</h1>
+        <form action="/saludar" method="POST">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label>Pasatiempos:</label>
+            <div>
+                <input type="checkbox" name="pasatiempos" value="Deportes"> Deportes<br>
+                <input type="checkbox" name="pasatiempos" value="Lectura"> Lectura<br>
+                <input type="checkbox" name="pasatiempos" value="Música"> Música<br>
+                <input type="checkbox" name="pasatiempos" value="Videojuegos"> Videojuegos
+            </div>
+
+            <label for="me_gusta">¿Qué te gusta hacer en tu tiempo libre?</label>
+            <textarea id="me_gusta" name="me_gusta" rows="4" required></textarea>
+
+            <button type="submit">Enviar Registro</button>
+        </form>
+        <br>
+        <a href="/alumnos">Ver lista de alumnos registrados</a>
+    </div>
+</body>
+</html>
